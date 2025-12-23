@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://baxni17x522no"]
+
+[ext_resource type="Texture2D" uid="uid://c48egcqsjs7gv" path="res://brick_assets/Special/extra_character_a.png" id="1_1urkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x52r7"]
+size = Vector2(64, 64)
+
+[node name="Bullet" type="RigidBody2D"]
+max_contacts_reported = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1urkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x52r7")

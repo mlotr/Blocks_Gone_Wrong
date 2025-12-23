@@ -7,10 +7,6 @@ extends Area2D
 # How many hits this block can take before being destroyed
 @export var max_hits: int = 1
 
-# Reference to the particles textures
-#@onready var yellow_particles: Texture = preload("res://brick_assets/Yellow/brick_low_1.png")
-
-
 # --- PRIVATE VARIABLES ---
 # Tracks the current number of hits received
 var _current_hits: int = 0
@@ -22,11 +18,9 @@ var _current_hits: int = 0
 # @onready var collision_shape: CollisionPolygon2D = $CollisionPolygon2D
 
 func _ready() -> void:
-	# Optional: Load texture dynamically based on color if files are named consistently.
-	# Example: sprite.texture = load("res://assets/blocks/element_" + block_color.to_lower() + "_square.png")
+	# Load texture dynamically based on color
 	particles.texture = load("res://brick_assets/" + block_color + "/brick_low_1.png")
 	
-	pass
 
 # --- PUBLIC FUNCTIONS ---
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=4 format=3 uid="uid://dkyn4mwiaokpl"]
 
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
-[ext_resource type="Texture2D" uid="uid://cr61n50raol7c" path="res://brick_assets/Yellow/brick_medium_slope_right_4.png" id="2_io8of"]
+[ext_resource type="Texture2D" uid="uid://dpjjy4l6g0xur" path="res://brick_assets/Red/brick_medium_slope_right_4.png" id="2_msf48"]
+[ext_resource type="PackedScene" uid="uid://baxni17x522no" path="res://scenes/bullet.tscn" id="3_co3t8"]
 
 [node name="Level1" type="Node2D"]
 
@@ -9,13 +10,16 @@
 position = Vector2(1208, 690)
 
 [node name="Block2" parent="." instance=ExtResource("1_n0uur")]
-position = Vector2(1342, 688)
+position = Vector2(1240, 648)
 block_color = "Red"
 
 [node name="Sprite2D" parent="Block2" index="0"]
-texture = ExtResource("2_io8of")
+texture = ExtResource("2_msf48")
 
 [node name="CollisionPolygon2D" parent="Block2" index="1"]
 polygon = PackedVector2Array(-2, -10, -2, -47, 126, -23, 126, -9)
+
+[node name="Bullet" parent="." instance=ExtResource("3_co3t8")]
+position = Vector2(1224, 320)
 
 [editable path="Block2"]
