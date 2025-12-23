@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://8og7i1oc0koo"]
+
+[ext_resource type="Script" path="res://scripts/block.gd" id="1_guht0"]
+
+[node name="Block" type="Area2D"]
+script = ExtResource("1_guht0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(15, 16, 32, -62, 109, -37, 137, 58)
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
