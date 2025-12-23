@@ -10,8 +10,6 @@ var _current_hits: int = 0
 # --- ONREADY VARIABLES ---
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var particles: CPUParticles2D = $HitParticles
-# Importante: Assumiamo che il collision shape sia figlio diretto e si chiami CollisionPolygon2D o CollisionShape2D
-# Se usi CollisionPolygon2D, assicurati che il nome nel codice corrisponda al nodo nella scena
 @onready var collision_shape = $CollisionPolygon2D 
 
 func _ready() -> void:
@@ -60,9 +58,9 @@ func _destroy_block() -> void:
 
 func _shake_block() -> void:
 	var tween = create_tween()
-	var original_offset = Vector2.ZERO # O il tuo valore di default se diverso
+	var original_offset = Vector2.ZERO # Or default value
 	
-	# Shake using offset (Perfect choice!)
+	# Shake using offset
 	tween.tween_property(sprite, "offset", original_offset + Vector2(-5, 0), 0.05)
 	tween.tween_property(sprite, "offset", original_offset + Vector2(5, 0), 0.05)
 	tween.tween_property(sprite, "offset", original_offset + Vector2(-5, 0), 0.05)
