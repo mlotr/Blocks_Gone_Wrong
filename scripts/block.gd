@@ -1,38 +1,34 @@
-extends Area2D
+extends StaticBody2D 
 
 # --- EXPORT VARIABLES ---
-# Standardize the block colors to match Kenney's asset naming conventions or logic
 @export_enum("Yellow", "Red", "Green", "Blue", "White", "Black") var block_color: String = "Yellow"
-
-# How many hits this block can take before being destroyed
 @export var max_hits: int = 1
 
 # --- PRIVATE VARIABLES ---
-# Tracks the current number of hits received
 var _current_hits: int = 0
 
 # --- ONREADY VARIABLES ---
-# Cache references to children nodes to ensure they are ready before use
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var particles: CPUParticles2D = $HitParticles
-# @onready var collision_shape: CollisionPolygon2D = $CollisionPolygon2D
+# Importante: Assumiamo che il collision shape sia figlio diretto e si chiami CollisionPolygon2D o CollisionShape2D
+# Se usi CollisionPolygon2D, assicurati che il nome nel codice corrisponda al nodo nella scena
+@onready var collision_shape = $CollisionPolygon2D 
 
 func _ready() -> void:
-	# Load texture dynamically based on color
-	particles.texture = load("res://brick_assets/" + block_color + "/brick_low_1.png")
+	# Load texture dynamically (with safety control)
+	var texture_path = "res://brick_assets/" + block_color + "/brick_low_1.png"
 	
-
+	if ResourceLoader.exists(texture_path):
+		particles.texture = load(texture_path)
+	
 # --- PUBLIC FUNCTIONS ---
 
 ## Called by the Bullet when it collides with this block.
 func take_damage() -> void:
 	_current_hits += 1
 	
-	# Visual Feedback: Shake the sprite
 	_shake_block()
 	
-	# Visual Feedback: Emit particles
-	# We emit a small burst for a hit, or a big burst for destruction
 	if _current_hits >= max_hits:
 		_destroy_block()
 	else:
@@ -40,42 +36,34 @@ func take_damage() -> void:
 
 # --- PRIVATE FUNCTIONS ---
 
-## Handles the logic for a non-lethal hit
 func _play_hit_feedback() -> void:
-	# 1. Emit particles (ensure One Shot is ON in the inspector)
 	particles.restart()
-	
-	# 2. Change visual state (Optional)
-	# e.g., Darken the sprite slightly to show damage
 	sprite.modulate = sprite.modulate.darkened(0.1)
 
-## Handles the logic when the block is destroyed
 func _destroy_block() -> void:
-	# 1. Disable collision to prevent further hits while animation plays
-	set_deferred("monitorable", false)
-	set_deferred("monitoring", false)
+	# 1. Disable collision immediately so the bullet passes through or doesn't bounce anymore
+	# 'set_deferred' is crucial for physics bodies to avoid crashes during physics calculations
+	collision_shape.set_deferred("disabled", true)
 	
-	# 2. Hide the sprite (the block is "gone")
+	# 2. Hide visual
 	sprite.visible = false
 	
-	# 3. Supercharge particles for the explosion effect
-	# We increase the amount and spread for the final destruction
-	particles.amount_ratio = 1.0 # Ensure max particles
+	# 3. Particle explosion
+	#particles.amount_ratio = 1.0
+	particles.amount *= 10
 	particles.explosiveness = 1.0
 	particles.restart()
 	
-	# 4. Wait for particles to finish before removing the object
+	# 4. Wait and free
 	await particles.finished
 	queue_free()
 
-## Creates a tween to shake the sprite slightly, simulating an impact.
-## Note: We shake the Sprite, not the Area2D, to keep collision shapes stable.
 func _shake_block() -> void:
 	var tween = create_tween()
-	var original_pos = sprite.offset # Should be (0,0) usually
+	var original_offset = Vector2.ZERO # O il tuo valore di default se diverso
 	
-	# Quick vibration effect
-	tween.tween_property(sprite, "offset", original_pos + Vector2(-5, 0), 0.05)
-	tween.tween_property(sprite, "offset", original_pos + Vector2(5, 0), 0.05)
-	tween.tween_property(sprite, "offset", original_pos + Vector2(-5, 0), 0.05)
-	tween.tween_property(sprite, "offset", original_pos, 0.05)
+	# Shake using offset (Perfect choice!)
+	tween.tween_property(sprite, "offset", original_offset + Vector2(-5, 0), 0.05)
+	tween.tween_property(sprite, "offset", original_offset + Vector2(5, 0), 0.05)
+	tween.tween_property(sprite, "offset", original_offset + Vector2(-5, 0), 0.05)
+	tween.tween_property(sprite, "offset", original_offset, 0.05)

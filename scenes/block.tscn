@@ -12,7 +12,7 @@ point_count = 2
 offsets = PackedFloat32Array(0.495146, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.0962047, 0.0962048, 0.0962047, 0)
 
-[node name="Block" type="Area2D"]
+[node name="Block" type="StaticBody2D"]
 script = ExtResource("1_guht0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

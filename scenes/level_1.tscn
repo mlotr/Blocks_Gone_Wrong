@@ -12,6 +12,7 @@ position = Vector2(1208, 690)
 [node name="Block2" parent="." instance=ExtResource("1_n0uur")]
 position = Vector2(1240, 648)
 block_color = "Red"
+max_hits = 3
 
 [node name="Sprite2D" parent="Block2" index="0"]
 texture = ExtResource("2_msf48")

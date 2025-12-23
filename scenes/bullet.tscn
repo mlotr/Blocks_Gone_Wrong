@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://baxni17x522no"]
+[gd_scene load_steps=5 format=3 uid="uid://baxni17x522no"]
 
 [ext_resource type="Texture2D" uid="uid://c48egcqsjs7gv" path="res://brick_assets/Special/extra_character_a.png" id="1_1urkn"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_husne"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p3a0x"]
+bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52r7"]
 size = Vector2(64, 64)
 
 [node name="Bullet" type="RigidBody2D"]
-max_contacts_reported = 1
+physics_material_override = SubResource("PhysicsMaterial_p3a0x")
+max_contacts_reported = 3
+contact_monitor = true
+linear_damp = 0.5
+script = ExtResource("1_husne")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1urkn")
