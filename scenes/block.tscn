@@ -1,13 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://8og7i1oc0koo"]
+[gd_scene load_steps=6 format=3 uid="uid://8og7i1oc0koo"]
 
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_guht0"]
+[ext_resource type="Texture2D" uid="uid://dclqna5fjrt34" path="res://brick_assets/Yellow/brick_high_2.png" id="2_sqif5"]
+[ext_resource type="Texture2D" uid="uid://hrnmaenaf86t" path="res://brick_assets/Yellow/brick_low_1.png" id="3_42ed1"]
+
+[sub_resource type="Curve" id="Curve_sn333"]
+_data = [Vector2(0, 0.907546), 0.0, 0.0, 0, 0, Vector2(1, 0.650731), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dcsxs"]
+offsets = PackedFloat32Array(0.495146, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0962047, 0.0962048, 0.0962047, 0)
 
 [node name="Block" type="Area2D"]
 script = ExtResource("1_guht0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sqif5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(15, 16, 32, -62, 109, -37, 137, 58)
+visible = false
+position = Vector2(-62, 28)
+polygon = PackedVector2Array(30, 4, 30, -61, 94, -61, 94, 4)
 
 [node name="HitParticles" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+randomness = 1.0
+texture = ExtResource("3_42ed1")
+direction = Vector2(2.08165e-12, -1)
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 350.0
+angular_velocity_min = -250.0
+angular_velocity_max = 250.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_curve = SubResource("Curve_sn333")
+color_ramp = SubResource("Gradient_dcsxs")
