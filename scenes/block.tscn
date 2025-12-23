@@ -19,7 +19,6 @@ script = ExtResource("1_guht0")
 texture = ExtResource("2_sqif5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(-62, 28)
 polygon = PackedVector2Array(30, 4, 30, -61, 94, -61, 94, 4)
 

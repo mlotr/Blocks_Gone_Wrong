@@ -2,14 +2,14 @@ extends Area2D
 
 # --- EXPORT VARIABLES ---
 # Standardize the block colors to match Kenney's asset naming conventions or logic
-@export_enum("Yellow", "Pink", "Brown", "Purple") var block_color: String = "Yellow"
+@export_enum("Yellow", "Red", "Green", "Blue", "White", "Black") var block_color: String = "Yellow"
 
 # How many hits this block can take before being destroyed
 @export var max_hits: int = 1
 
-# Reference to the texture atlas or individual textures could be handled here.
-# For simplicity, we assume the Sprite2D texture is assigned in the editor 
-# or loaded via script based on 'block_color'.
+# Reference to the particles textures
+#@onready var yellow_particles: Texture = preload("res://brick_assets/Yellow/brick_low_1.png")
+
 
 # --- PRIVATE VARIABLES ---
 # Tracks the current number of hits received
@@ -24,6 +24,8 @@ var _current_hits: int = 0
 func _ready() -> void:
 	# Optional: Load texture dynamically based on color if files are named consistently.
 	# Example: sprite.texture = load("res://assets/blocks/element_" + block_color.to_lower() + "_square.png")
+	particles.texture = load("res://brick_assets/" + block_color + "/brick_low_1.png")
+	
 	pass
 
 # --- PUBLIC FUNCTIONS ---
