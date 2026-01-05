@@ -1,75 +1,71 @@
 extends RigidBody2D
 
-# --- SIGNALS ---
-# Signal emitted when the bullet hits something (useful for camera shake or UI)
 signal hit_something
 
 # --- EXPORT VARIABLES ---
-@export var speed: float = 800.0
-@export var boomerang_speed: float = 1000.0
+# The speed used when redirecting the bullet with the mouse
+@export var redirect_speed: float = 1000.0
 
 # --- PRIVATE VARIABLES ---
-# Tracks if the bullet has hit a block at least once
-var _has_hit_block: bool = false
-# Tracks if the player is currently clicking to recall the bullet
-var _is_returning: bool = false
+# Tracks if the bullet currently has a "charge" to be redirected
+var _has_charge: bool = false
+# Current speed to maintain velocity consistency
+var _current_speed: float = 0.0
 
 # --- ONREADY VARIABLES ---
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
-	# Connect the body_entered signal to our function to detect hits
-	# Ensure "Contact Monitor" is ON and "Max Contacts Reported" > 0 in Inspector
 	self.body_entered.connect(_on_body_entered)
+	# Set default color (dimmed)
+	sprite.modulate = Color(1, 1, 1, 0.7) 
 
 func _input(event: InputEvent) -> void:
-	# The boomerang mechanic activates ONLY after the first hit
-	if _has_hit_block:
-		if event.is_action_pressed("click"): # Replace with your action name
-			_is_returning = true
-		elif event.is_action_released("click"):
-			_is_returning = false
-
-func _physics_process(_delta: float) -> void:
-	# If the player is holding the mouse button, override the velocity
-	if _is_returning:
-		_move_towards_mouse()
+	# Input is handled ONLY if we have a charge available
+	if _has_charge and event.is_action_pressed("click"):
+		_redirect_bullet()
 
 # --- PUBLIC FUNCTIONS ---
 
-## Initial launch of the bullet from the Cannon
-func launch(direction: Vector2) -> void:
+## Initial launch called by Cannon
+func launch(direction: Vector2, speed: float) -> void:
+	_current_speed = speed
 	self.linear_velocity = direction.normalized() * speed
 
 # --- PRIVATE FUNCTIONS ---
 
-## Logic to steer the bullet towards the current mouse position
-func _move_towards_mouse() -> void:
+## Applies the redirection logic
+func _redirect_bullet() -> void:
 	var mouse_pos = get_global_mouse_position()
-	# Calculate direction from bullet to mouse
 	var direction = (mouse_pos - global_position).normalized()
 	
-	# We directly set linear_velocity to give the player snappy control
-	# The bullet will stop bouncing and "fly" towards the cursor
-	linear_velocity = direction * boomerang_speed
+	# Apply new velocity immediately
+	# We use redirect_speed to give it a "dash" feeling, or reuse _current_speed
+	self.linear_velocity = direction * redirect_speed
 	
-	# Optional: Rotate the bullet to face the direction of travel
-	rotation = linear_velocity.angle()
+	# Consume the charge
+	_has_charge = false
+	
+	# Visual feedback: Turn off the glow
+	sprite.modulate = Color(1, 1, 1, 0.7)
+	
+	# Rotate sprite to face movement
+	rotation = direction.angle()
 
-## Detection logic for hitting StaticBody2D blocks
+## Collision Logic
 func _on_body_entered(body: Node) -> void:
-	# Check if the object hit has the 'take_damage' method (our Blocks)
 	if body.has_method("take_damage"):
 		body.take_damage()
-		
-		# Once we hit a block, we unlock the boomerang ability
-		if not _has_hit_block:
-			_has_hit_block = true
-			# Visual feedback when the ability unlocks (e.g., change color)
-			sprite.modulate = Color(0.5, 1.5, 0.5) # Glowing green tint
-		
 		hit_something.emit()
+		
+		# RECHARGE MECHANIC:
+		# Every time we hit a block, we regain the ability to redirect
+		if not _has_charge:
+			_has_charge = true
+			# Visual feedback: Glow up!
+			sprite.modulate = Color(1.5, 1.5, 0.5, 1.0) # Bright Yellow/Gold
+			
+			# Optional: Play a "Recharge" sound here
 
-## Clean up when the bullet leaves the play area
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
