@@ -7,24 +7,33 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="Block" parent="." instance=ExtResource("1_n0uur")]
-position = Vector2(608, 602)
-
-[node name="Block2" parent="." instance=ExtResource("1_n0uur")]
-position = Vector2(640, 560)
-block_color = "Red"
-max_hits = 3
-
-[node name="Sprite2D" parent="Block2" index="0"]
-texture = ExtResource("2_msf48")
-
-[node name="CollisionPolygon2D" parent="Block2" index="1"]
-polygon = PackedVector2Array(-2, -10, -2, -47, 126, -23, 126, -9)
-
 [node name="Cannon" parent="." instance=ExtResource("3_boywy")]
 position = Vector2(16, 536)
 
 [node name="GameCamera" type="Camera2D" parent="."]
+position = Vector2(960, 536)
+limit_left = 0
+limit_right = 2500
+limit_bottom = 1500
+limit_smoothed = true
+position_smoothing_enabled = true
 script = ExtResource("4_fbl8c")
+cannon_path = NodePath("../Cannon")
 
-[editable path="Block2"]
+[node name="BlocksContainer" type="Node2D" parent="."]
+
+[node name="Block" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(608, 602)
+
+[node name="Block2" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(640, 560)
+block_color = "Red"
+max_hits = 3
+
+[node name="Sprite2D" parent="BlocksContainer/Block2" index="0"]
+texture = ExtResource("2_msf48")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block2" index="1"]
+polygon = PackedVector2Array(-2, -10, -2, -47, 126, -23, 126, -9)
+
+[editable path="BlocksContainer/Block2"]
