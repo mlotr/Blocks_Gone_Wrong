@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnpalud56fodw"]
+[gd_scene load_steps=8 format=3 uid="uid://bnpalud56fodw"]
 
 [ext_resource type="Script" path="res://scripts/cannon.gd" id="1_gacex"]
 [ext_resource type="Texture2D" uid="uid://crgp76o83hhua" path="res://brick_assets/Black/brick_medium_6.png" id="1_u1sdy"]
+[ext_resource type="PackedScene" uid="uid://baxni17x522no" path="res://scenes/bullet.tscn" id="2_60g0n"]
 
 [sub_resource type="Animation" id="Animation_akqxy"]
 resource_name = "recoil"
@@ -45,6 +46,7 @@ _data = {
 
 [node name="Cannon" type="CharacterBody2D"]
 script = ExtResource("1_gacex")
+bullet_scene = ExtResource("2_60g0n")
 
 [node name="BaseSprite" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -54,7 +56,7 @@ texture = ExtResource("1_u1sdy")
 position = Vector2(96, 0)
 texture = ExtResource("1_u1sdy")
 
-[node name="Marker2D" type="Marker2D" parent="GunSprite"]
+[node name="Muzzle" type="Marker2D" parent="GunSprite"]
 position = Vector2(88, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -64,3 +66,4 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_usg4q")
+disabled = true
