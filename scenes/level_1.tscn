@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=5 format=3 uid="uid://dkyn4mwiaokpl"]
 
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
 [ext_resource type="Texture2D" uid="uid://dpjjy4l6g0xur" path="res://brick_assets/Red/brick_medium_slope_right_4.png" id="2_msf48"]
 [ext_resource type="PackedScene" uid="uid://bnpalud56fodw" path="res://scenes/cannon.tscn" id="3_boywy"]
+[ext_resource type="Script" path="res://scripts/game_camera.gd" id="4_fbl8c"]
 
 [node name="Level1" type="Node2D"]
 
@@ -22,5 +23,8 @@ polygon = PackedVector2Array(-2, -10, -2, -47, 126, -23, 126, -9)
 
 [node name="Cannon" parent="." instance=ExtResource("3_boywy")]
 position = Vector2(16, 536)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+script = ExtResource("4_fbl8c")
 
 [editable path="Block2"]

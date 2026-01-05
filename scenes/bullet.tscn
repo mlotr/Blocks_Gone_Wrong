@@ -9,7 +9,7 @@ bounce = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52r7"]
 size = Vector2(64, 64)
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" groups=["Projectiles"]]
 physics_material_override = SubResource("PhysicsMaterial_p3a0x")
 max_contacts_reported = 3
 contact_monitor = true
