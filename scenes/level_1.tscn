@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=8 format=3 uid="uid://dkyn4mwiaokpl"]
 
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
-[ext_resource type="Texture2D" uid="uid://dpjjy4l6g0xur" path="res://brick_assets/Red/brick_medium_slope_right_4.png" id="2_msf48"]
 [ext_resource type="PackedScene" uid="uid://bnpalud56fodw" path="res://scenes/cannon.tscn" id="3_boywy"]
 [ext_resource type="Script" path="res://scripts/game_camera.gd" id="4_fbl8c"]
+[ext_resource type="Texture2D" uid="uid://djdfxod10ge0g" path="res://brick_assets/Red/brick_medium_6.png" id="4_v3ahy"]
+[ext_resource type="Texture2D" uid="uid://dsnwy686my8up" path="res://brick_assets/Red/brick_high_slope_right_4.png" id="5_40ikf"]
+[ext_resource type="Texture2D" uid="uid://bn4h3ngrfumte" path="res://brick_assets/Green/brick_high_slope_left_2.png" id="5_gww18"]
+[ext_resource type="Texture2D" uid="uid://c8yvs4wft0bhx" path="res://brick_assets/Red/brick_high_slope_left_4.png" id="6_d5agu"]
 
 [node name="Level1" type="Node2D"]
 
@@ -22,18 +25,90 @@ cannon_path = NodePath("../Cannon")
 
 [node name="BlocksContainer" type="Node2D" parent="."]
 
+[node name="Block3" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(800, 688)
+block_color = "Red"
+max_hits = 3
+
+[node name="Sprite2D" parent="BlocksContainer/Block3" index="0"]
+texture = ExtResource("4_v3ahy")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block3" index="1"]
+position = Vector2(-184, 16)
+scale = Vector2(2.96875, 0.538462)
+
+[node name="Block4" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(992, 688)
+block_color = "Red"
+max_hits = 3
+
+[node name="Sprite2D" parent="BlocksContainer/Block4" index="0"]
+texture = ExtResource("4_v3ahy")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block4" index="1"]
+position = Vector2(-184, 16)
+scale = Vector2(2.96875, 0.538462)
+
+[node name="Block5" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(1184, 688)
+block_color = "Red"
+max_hits = 3
+
+[node name="Sprite2D" parent="BlocksContainer/Block5" index="0"]
+texture = ExtResource("4_v3ahy")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block5" index="1"]
+position = Vector2(-184, 16)
+scale = Vector2(2.96875, 0.538462)
+
 [node name="Block" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
-position = Vector2(608, 602)
+position = Vector2(864, 648)
+max_hits = 2
+
+[node name="Block8" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(832, 592)
+block_color = "Green"
+max_hits = 4
+
+[node name="Sprite2D" parent="BlocksContainer/Block8" index="0"]
+position = Vector2(32, 0)
+texture = ExtResource("5_gww18")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block8" index="1"]
+polygon = PackedVector2Array(62, 4, 62, -20, 102, -60, 126, -60, 126, 4)
+
+[node name="Block6" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(1120, 648)
+max_hits = 2
 
 [node name="Block2" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
-position = Vector2(640, 560)
+position = Vector2(1216, 661)
 block_color = "Red"
 max_hits = 3
 
 [node name="Sprite2D" parent="BlocksContainer/Block2" index="0"]
-texture = ExtResource("2_msf48")
+position = Vector2(0, -13)
+texture = ExtResource("5_40ikf")
 
 [node name="CollisionPolygon2D" parent="BlocksContainer/Block2" index="1"]
-polygon = PackedVector2Array(-2, -10, -2, -47, 126, -23, 126, -9)
+polygon = PackedVector2Array(-2, -10, -2, -73, 30, -73, 126, -33, 126, -9)
 
+[node name="Block7" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(768, 661)
+block_color = "Red"
+max_hits = 3
+
+[node name="Sprite2D" parent="BlocksContainer/Block7" index="0"]
+position = Vector2(0, -13)
+texture = ExtResource("6_d5agu")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block7" index="1"]
+position = Vector2(-64, 27)
+polygon = PackedVector2Array(-2, -10, -2, -36, 104, -72, 128, -72, 126, -9)
+
+[editable path="BlocksContainer/Block3"]
+[editable path="BlocksContainer/Block4"]
+[editable path="BlocksContainer/Block5"]
+[editable path="BlocksContainer/Block8"]
 [editable path="BlocksContainer/Block2"]
+[editable path="BlocksContainer/Block7"]
