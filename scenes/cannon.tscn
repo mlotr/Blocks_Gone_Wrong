@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnpalud56fodw"]
+
+[ext_resource type="Script" path="res://scripts/cannon.gd" id="1_gacex"]
+[ext_resource type="Texture2D" uid="uid://crgp76o83hhua" path="res://brick_assets/Black/brick_medium_6.png" id="1_u1sdy"]
+
+[sub_resource type="Animation" id="Animation_akqxy"]
+resource_name = "recoil"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_c5r36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x7wps"]
+_data = {
+"RESET": SubResource("Animation_c5r36"),
+"recoil": SubResource("Animation_akqxy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usg4q"]
+
+[node name="Cannon" type="CharacterBody2D"]
+script = ExtResource("1_gacex")
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_u1sdy")
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+position = Vector2(96, 0)
+texture = ExtResource("1_u1sdy")
+
+[node name="Marker2D" type="Marker2D" parent="GunSprite"]
+position = Vector2(88, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x7wps")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_usg4q")
