@@ -46,6 +46,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usg4q"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qgxow"]
+cull_mode = 1
 polygon = PackedVector2Array(0, 160, 0, -152, 48, -120, 48, -72, 104, -128, 128, -64, 232, -64, 264, -32, 288, -64, 312, -64, 336, -32, 352, -64, 384, -64, 416, -32, 416, 32, 384, 64, 352, 64, 336, 32, 312, 64, 288, 64, 264, 32, 232, 64, 128, 64, 104, 128, 48, 64, 48, 120)
 
 [node name="Cannon" type="CharacterBody2D"]

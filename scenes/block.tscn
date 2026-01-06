@@ -13,7 +13,8 @@ offsets = PackedFloat32Array(0.495146, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.0962047, 0.0962048, 0.0962047, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6cjwr"]
-polygon = PackedVector2Array(-32, -33, 31, -33, 31, 32, -33, 32)
+cull_mode = 1
+polygon = PackedVector2Array(-33, -33, 31, -33, 31, 32, -33, 32)
 
 [node name="Block" type="StaticBody2D"]
 script = ExtResource("1_guht0")

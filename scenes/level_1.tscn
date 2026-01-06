@@ -155,12 +155,12 @@ polygon = PackedVector2Array(-2, -10, -2, -36, 104, -72, 128, -72, 126, -9)
 occluder = SubResource("OccluderPolygon2D_y8d2t")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-rotation = 0.785398
-energy = 0.7
+rotation = -0.785398
+energy = 0.5
 shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.521569)
+shadow_color = Color(0, 0, 0, 0.662745)
 shadow_filter = 1
-shadow_filter_smooth = 5.0
+shadow_filter_smooth = 10.0
 
 [editable path="BlocksContainer/Block3"]
 [editable path="BlocksContainer/Block4"]
