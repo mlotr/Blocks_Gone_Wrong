@@ -117,6 +117,9 @@ texture = ExtResource("6_d5agu")
 position = Vector2(-64, 27)
 polygon = PackedVector2Array(-2, -10, -2, -36, 104, -72, 128, -72, 126, -9)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+
 [editable path="BlocksContainer/Block3"]
 [editable path="BlocksContainer/Block4"]
 [editable path="BlocksContainer/Block5"]
