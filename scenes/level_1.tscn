@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=9 format=3 uid="uid://dkyn4mwiaokpl"]
 
+[ext_resource type="Texture2D" uid="uid://w7adwji7c43p" path="res://backgrounds/backgroundCastles.png" id="1_7mng4"]
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
 [ext_resource type="PackedScene" uid="uid://bnpalud56fodw" path="res://scenes/cannon.tscn" id="3_boywy"]
 [ext_resource type="Script" path="res://scripts/game_camera.gd" id="4_fbl8c"]
@@ -9,6 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://c8yvs4wft0bhx" path="res://brick_assets/Red/brick_high_slope_left_4.png" id="6_d5agu"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1080, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(512, 540)
+scale = Vector2(1.055, 1.055)
+texture = ExtResource("1_7mng4")
 
 [node name="Cannon" parent="." instance=ExtResource("3_boywy")]
 position = Vector2(16, 536)
