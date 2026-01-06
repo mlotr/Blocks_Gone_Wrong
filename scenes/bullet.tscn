@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://baxni17x522no"]
+[gd_scene load_steps=9 format=3 uid="uid://baxni17x522no"]
 
 [ext_resource type="Texture2D" uid="uid://c48egcqsjs7gv" path="res://brick_assets/Special/extra_character_a.png" id="1_1urkn"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_husne"]
+[ext_resource type="Texture2D" uid="uid://ch5iedndtaykl" path="res://brick_assets/Green/brick_low_1.png" id="3_21on2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p3a0x"]
 bounce = 1.0
+
+[sub_resource type="Curve" id="Curve_5cc7g"]
+_data = [Vector2(0, 0.871592), 0.0, 0.0, 0, 0, Vector2(0.996904, 0.558277), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_gvr0f"]
+offsets = PackedFloat32Array(0.530744, 1)
+colors = PackedColorArray(1.2, 1.2, 1.2, 1, 0, 0, 0, 0.32549)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52r7"]
 size = Vector2(64, 64)
@@ -19,6 +28,20 @@ max_contacts_reported = 3
 contact_monitor = true
 linear_damp = 0.5
 script = ExtResource("1_husne")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+self_modulate = Color(0.25098, 0.909804, 1, 1)
+amount = 20
+lifetime = 0.7
+randomness = 1.0
+texture = ExtResource("3_21on2")
+emission_shape = 3
+emission_rect_extents = Vector2(32, 32)
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -350.0
+angular_velocity_max = 350.0
+scale_amount_curve = SubResource("Curve_5cc7g")
+color_ramp = SubResource("Gradient_gvr0f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1urkn")
