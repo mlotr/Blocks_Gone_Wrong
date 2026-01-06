@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://8og7i1oc0koo"]
+[gd_scene load_steps=7 format=3 uid="uid://8og7i1oc0koo"]
 
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_guht0"]
 [ext_resource type="Texture2D" uid="uid://dclqna5fjrt34" path="res://brick_assets/Yellow/brick_high_2.png" id="2_sqif5"]
@@ -11,6 +11,9 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_dcsxs"]
 offsets = PackedFloat32Array(0.495146, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.0962047, 0.0962048, 0.0962047, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6cjwr"]
+polygon = PackedVector2Array(-32, -33, 31, -33, 31, 32, -33, 32)
 
 [node name="Block" type="StaticBody2D"]
 script = ExtResource("1_guht0")
@@ -39,3 +42,7 @@ damping_min = 100.0
 damping_max = 100.0
 scale_amount_curve = SubResource("Curve_sn333")
 color_ramp = SubResource("Gradient_dcsxs")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(1, 0)
+occluder = SubResource("OccluderPolygon2D_6cjwr")

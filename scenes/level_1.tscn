@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=15 format=3 uid="uid://dkyn4mwiaokpl"]
 
 [ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_mkn4i"]
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
@@ -8,6 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://dsnwy686my8up" path="res://brick_assets/Red/brick_high_slope_right_4.png" id="5_40ikf"]
 [ext_resource type="Texture2D" uid="uid://bn4h3ngrfumte" path="res://brick_assets/Green/brick_high_slope_left_2.png" id="5_gww18"]
 [ext_resource type="Texture2D" uid="uid://c8yvs4wft0bhx" path="res://brick_assets/Red/brick_high_slope_left_4.png" id="6_d5agu"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_joon8"]
+polygon = PackedVector2Array(-97, -16, 95, -16, 95, 16, -97, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yxcxd"]
+polygon = PackedVector2Array(-97, -16, 95, -16, 95, 16, -97, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6y4qm"]
+polygon = PackedVector2Array(-97, -16, 95, -16, 95, 16, -97, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7v0il"]
+polygon = PackedVector2Array(-32, 8, 8, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ajemj"]
+polygon = PackedVector2Array(-65, -45, -33, -45, 63, -5, 63, 19, -65, 19)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y8d2t"]
+polygon = PackedVector2Array(-65, -13, 39, -45, 63, -45, 63, 19, -65, 19)
 
 [node name="Level1" type="Node2D"]
 
@@ -48,6 +66,9 @@ texture = ExtResource("4_v3ahy")
 position = Vector2(-184, 16)
 scale = Vector2(2.96875, 0.538462)
 
+[node name="LightOccluder2D" parent="BlocksContainer/Block3" index="3"]
+occluder = SubResource("OccluderPolygon2D_joon8")
+
 [node name="Block4" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 position = Vector2(992, 688)
 block_color = "Red"
@@ -60,6 +81,9 @@ texture = ExtResource("4_v3ahy")
 position = Vector2(-184, 16)
 scale = Vector2(2.96875, 0.538462)
 
+[node name="LightOccluder2D" parent="BlocksContainer/Block4" index="3"]
+occluder = SubResource("OccluderPolygon2D_yxcxd")
+
 [node name="Block5" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 position = Vector2(1184, 688)
 block_color = "Red"
@@ -71,6 +95,9 @@ texture = ExtResource("4_v3ahy")
 [node name="CollisionPolygon2D" parent="BlocksContainer/Block5" index="1"]
 position = Vector2(-184, 16)
 scale = Vector2(2.96875, 0.538462)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block5" index="3"]
+occluder = SubResource("OccluderPolygon2D_6y4qm")
 
 [node name="Block" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 position = Vector2(864, 648)
@@ -88,6 +115,10 @@ texture = ExtResource("5_gww18")
 [node name="CollisionPolygon2D" parent="BlocksContainer/Block8" index="1"]
 polygon = PackedVector2Array(62, 4, 62, -20, 102, -60, 126, -60, 126, 4)
 
+[node name="LightOccluder2D" parent="BlocksContainer/Block8" index="3"]
+position = Vector2(32, 0)
+occluder = SubResource("OccluderPolygon2D_7v0il")
+
 [node name="Block6" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 position = Vector2(1120, 648)
 max_hits = 2
@@ -104,6 +135,9 @@ texture = ExtResource("5_40ikf")
 [node name="CollisionPolygon2D" parent="BlocksContainer/Block2" index="1"]
 polygon = PackedVector2Array(-2, -10, -2, -73, 30, -73, 126, -33, 126, -9)
 
+[node name="LightOccluder2D" parent="BlocksContainer/Block2" index="3"]
+occluder = SubResource("OccluderPolygon2D_ajemj")
+
 [node name="Block7" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 position = Vector2(768, 661)
 block_color = "Red"
@@ -117,8 +151,16 @@ texture = ExtResource("6_d5agu")
 position = Vector2(-64, 27)
 polygon = PackedVector2Array(-2, -10, -2, -36, 104, -72, 128, -72, 126, -9)
 
+[node name="LightOccluder2D" parent="BlocksContainer/Block7" index="3"]
+occluder = SubResource("OccluderPolygon2D_y8d2t")
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
+rotation = 0.785398
+energy = 0.7
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.521569)
+shadow_filter = 1
+shadow_filter_smooth = 5.0
 
 [editable path="BlocksContainer/Block3"]
 [editable path="BlocksContainer/Block4"]
