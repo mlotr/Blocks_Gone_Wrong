@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkyn4mwiaokpl"]
 
-[ext_resource type="Texture2D" uid="uid://w7adwji7c43p" path="res://backgrounds/backgroundCastles.png" id="1_7mng4"]
+[ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_mkn4i"]
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
 [ext_resource type="PackedScene" uid="uid://bnpalud56fodw" path="res://scenes/cannon.tscn" id="3_boywy"]
 [ext_resource type="Script" path="res://scripts/game_camera.gd" id="4_fbl8c"]
@@ -19,8 +19,7 @@ motion_mirroring = Vector2(2048, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(1024, 540)
-scale = Vector2(2, 2)
-texture = ExtResource("1_7mng4")
+texture = ExtResource("1_mkn4i")
 
 [node name="Cannon" parent="." instance=ExtResource("3_boywy")]
 position = Vector2(16, 536)
