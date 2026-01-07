@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dk1yrlfsgmprx"]
+[gd_scene load_steps=14 format=3 uid="uid://dk1yrlfsgmprx"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_mjyse"]
 [ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_t82k7"]
 [ext_resource type="PackedScene" uid="uid://dkyn4mwiaokpl" path="res://scenes/level_1.tscn" id="2_6c5vh"]
 [ext_resource type="Texture2D" uid="uid://bppsiolytg5fe" path="res://UI/title_STB.png" id="2_g5fs8"]
+[ext_resource type="Script" path="res://scripts/title_moving_parallax_background.gd" id="3_gi0mj"]
 [ext_resource type="Texture2D" uid="uid://buvum3pdjxbfp" path="res://UI/button_rectangle_depth_border.png" id="4_71gsj"]
 [ext_resource type="Texture2D" uid="uid://dpgwelbmufmqk" path="res://UI/button_rectangle_gloss.png" id="5_1136d"]
 [ext_resource type="Texture2D" uid="uid://cn2fl2bjywgfl" path="res://UI/button_rectangle_depth_gloss.png" id="6_rhhmc"]
+[ext_resource type="AudioStream" uid="uid://dw10l56mnuvov" path="res://sounds/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3" id="8_qvbyc"]
 
 [sub_resource type="Animation" id="Animation_p0rwe"]
 resource_name = "fade_in"
@@ -61,6 +63,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundTrack:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
 
 [sub_resource type="Animation" id="Animation_2glhw"]
 resource_name = "fade_out"
@@ -88,6 +102,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundTrack:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-10.0, -80.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oljjw"]
 _data = {
@@ -104,7 +130,19 @@ offset_bottom = 1080.0
 script = ExtResource("1_mjyse")
 level_scene = ExtResource("2_6c5vh")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_gi0mj")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(2048, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1024, 540)
+texture = ExtResource("1_t82k7")
+
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_top = -400.0
 offset_right = 2048.0
@@ -128,6 +166,7 @@ offset_right = 1064.0
 offset_bottom = 720.0
 
 [node name="PlayButton" type="TextureButton" parent="MenuContainer"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 texture_normal = ExtResource("4_71gsj")
 texture_pressed = ExtResource("5_1136d")
@@ -137,6 +176,7 @@ texture_focused = ExtResource("6_rhhmc")
 stretch_mode = 0
 
 [node name="QuitButton" type="TextureButton" parent="MenuContainer"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 texture_normal = ExtResource("4_71gsj")
 texture_pressed = ExtResource("5_1136d")
@@ -146,7 +186,9 @@ texture_focused = ExtResource("6_rhhmc")
 stretch_mode = 0
 
 [node name="PortfolioButton" type="TextureButton" parent="MenuContainer"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_71gsj")
 texture_pressed = ExtResource("5_1136d")
 texture_hover = ExtResource("6_rhhmc")
@@ -164,3 +206,8 @@ layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="SoundTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_qvbyc")
+volume_db = -10.0
+autoplay = true
