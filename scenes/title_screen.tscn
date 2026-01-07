@@ -1,0 +1,166 @@
+[gd_scene load_steps=12 format=3 uid="uid://dk1yrlfsgmprx"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_mjyse"]
+[ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_t82k7"]
+[ext_resource type="PackedScene" uid="uid://dkyn4mwiaokpl" path="res://scenes/level_1.tscn" id="2_6c5vh"]
+[ext_resource type="Texture2D" uid="uid://bppsiolytg5fe" path="res://UI/title_STB.png" id="2_g5fs8"]
+[ext_resource type="Texture2D" uid="uid://buvum3pdjxbfp" path="res://UI/button_rectangle_depth_border.png" id="4_71gsj"]
+[ext_resource type="Texture2D" uid="uid://dpgwelbmufmqk" path="res://UI/button_rectangle_gloss.png" id="5_1136d"]
+[ext_resource type="Texture2D" uid="uid://cn2fl2bjywgfl" path="res://UI/button_rectangle_depth_gloss.png" id="6_rhhmc"]
+
+[sub_resource type="Animation" id="Animation_p0rwe"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeOverlay:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_m114k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeOverlay:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2glhw"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeOverlay:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oljjw"]
+_data = {
+"RESET": SubResource("Animation_m114k"),
+"fade_in": SubResource("Animation_p0rwe"),
+"fade_out": SubResource("Animation_2glhw")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_mjyse")
+level_scene = ExtResource("2_6c5vh")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -400.0
+offset_right = 2048.0
+offset_bottom = 1648.0
+texture = ExtResource("1_t82k7")
+
+[node name="TitleLogo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_right = 1766.0
+offset_bottom = 768.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_g5fs8")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 520.0
+offset_right = 1064.0
+offset_bottom = 720.0
+
+[node name="PlayButton" type="TextureButton" parent="MenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_71gsj")
+texture_pressed = ExtResource("5_1136d")
+texture_hover = ExtResource("6_rhhmc")
+texture_disabled = ExtResource("4_71gsj")
+texture_focused = ExtResource("6_rhhmc")
+stretch_mode = 0
+
+[node name="QuitButton" type="TextureButton" parent="MenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_71gsj")
+texture_pressed = ExtResource("5_1136d")
+texture_hover = ExtResource("6_rhhmc")
+texture_disabled = ExtResource("4_71gsj")
+texture_focused = ExtResource("6_rhhmc")
+stretch_mode = 0
+
+[node name="PortfolioButton" type="TextureButton" parent="MenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_71gsj")
+texture_pressed = ExtResource("5_1136d")
+texture_hover = ExtResource("6_rhhmc")
+texture_disabled = ExtResource("4_71gsj")
+texture_focused = ExtResource("6_rhhmc")
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oljjw")
+}
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
