@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk1yrlfsgmprx"]
+[gd_scene load_steps=15 format=3 uid="uid://dk1yrlfsgmprx"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_mjyse"]
 [ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_t82k7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dpgwelbmufmqk" path="res://UI/button_rectangle_gloss.png" id="5_1136d"]
 [ext_resource type="Texture2D" uid="uid://cn2fl2bjywgfl" path="res://UI/button_rectangle_depth_gloss.png" id="6_rhhmc"]
 [ext_resource type="AudioStream" uid="uid://dw10l56mnuvov" path="res://sounds/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3" id="8_qvbyc"]
+[ext_resource type="FontFile" uid="uid://ba1rok5vimfsm" path="res://fonts/Dimbo Regular.ttf" id="9_x8ypo"]
 
 [sub_resource type="Animation" id="Animation_p0rwe"]
 resource_name = "fade_in"
@@ -160,14 +161,15 @@ expand_mode = 1
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 840.0
+offset_left = 810.0
 offset_top = 520.0
-offset_right = 1064.0
-offset_bottom = 720.0
+offset_right = 1110.0
+offset_bottom = 828.0
 
 [node name="PlayButton" type="TextureButton" parent="MenuContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_71gsj")
 texture_pressed = ExtResource("5_1136d")
 texture_hover = ExtResource("6_rhhmc")
@@ -175,15 +177,44 @@ texture_disabled = ExtResource("4_71gsj")
 texture_focused = ExtResource("6_rhhmc")
 stretch_mode = 0
 
+[node name="PlayLabel" type="Label" parent="MenuContainer/PlayButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -5.0
+offset_right = 299.0
+offset_bottom = 98.0
+theme_override_colors/font_outline_color = Color(0.94902, 0.207843, 0.32549, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("9_x8ypo")
+theme_override_font_sizes/font_size = 42
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="QuitButton" type="TextureButton" parent="MenuContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_71gsj")
 texture_pressed = ExtResource("5_1136d")
 texture_hover = ExtResource("6_rhhmc")
 texture_disabled = ExtResource("4_71gsj")
 texture_focused = ExtResource("6_rhhmc")
 stretch_mode = 0
+
+[node name="QuitLabel" type="Label" parent="MenuContainer/QuitButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 299.0
+offset_bottom = 99.0
+theme_override_colors/font_outline_color = Color(0.94902, 0.207843, 0.32549, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("9_x8ypo")
+theme_override_font_sizes/font_size = 42
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PortfolioButton" type="TextureButton" parent="MenuContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -195,6 +226,19 @@ texture_hover = ExtResource("6_rhhmc")
 texture_disabled = ExtResource("4_71gsj")
 texture_focused = ExtResource("6_rhhmc")
 stretch_mode = 0
+
+[node name="PortfolioLabel" type="Label" parent="MenuContainer/PortfolioButton"]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 297.0
+offset_bottom = 99.0
+theme_override_colors/font_outline_color = Color(0.94902, 0.207843, 0.32549, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("9_x8ypo")
+theme_override_font_sizes/font_size = 42
+text = "PORTFOLIO"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
