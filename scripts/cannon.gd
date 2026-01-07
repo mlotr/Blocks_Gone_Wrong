@@ -14,6 +14,7 @@ var _current_bullet: Node = null
 @onready var gun_sprite: Sprite2D = $GunSprite
 @onready var muzzle: Marker2D = $GunSprite/Muzzle
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var shot_sfx = $ShotSFX
 
 func _process(_delta: float) -> void:
 	_handle_input()
@@ -45,5 +46,9 @@ func _fire() -> void:
 	
 	_current_bullet = bullet_instance
 	
+	# Play recoil animation
 	if anim_player.has_animation("recoil"):
 		anim_player.play("recoil")
+		
+	# Play SFX
+	shot_sfx.play()

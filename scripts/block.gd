@@ -57,7 +57,8 @@ func _destroy_block() -> void:
 	particles.restart()
 	
 	# 4. Wait and free
-	await particles.finished and broken_sfx.finished
+	await particles.finished 
+	await broken_sfx.finished
 	queue_free()
 
 func _shake_block() -> void:
