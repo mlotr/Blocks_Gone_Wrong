@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=16 format=3 uid="uid://dkyn4mwiaokpl"]
 
 [ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_mkn4i"]
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dsnwy686my8up" path="res://brick_assets/Red/brick_high_slope_right_4.png" id="5_40ikf"]
 [ext_resource type="Texture2D" uid="uid://bn4h3ngrfumte" path="res://brick_assets/Green/brick_high_slope_left_2.png" id="5_gww18"]
 [ext_resource type="Texture2D" uid="uid://c8yvs4wft0bhx" path="res://brick_assets/Red/brick_high_slope_left_4.png" id="6_d5agu"]
+[ext_resource type="AudioStream" uid="uid://dw10l56mnuvov" path="res://sounds/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3" id="9_fjmhu"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_joon8"]
 polygon = PackedVector2Array(-97, -16, 95, -16, 95, 16, -97, 16)
@@ -161,6 +162,11 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.431373)
 shadow_filter = 1
 shadow_filter_smooth = 5.0
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_fjmhu")
+volume_db = -10.0
+autoplay = true
 
 [editable path="BlocksContainer/Block3"]
 [editable path="BlocksContainer/Block4"]

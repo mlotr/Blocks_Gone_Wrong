@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8og7i1oc0koo"]
+[gd_scene load_steps=9 format=3 uid="uid://8og7i1oc0koo"]
 
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_guht0"]
 [ext_resource type="Texture2D" uid="uid://dclqna5fjrt34" path="res://brick_assets/Yellow/brick_high_2.png" id="2_sqif5"]
 [ext_resource type="Texture2D" uid="uid://hrnmaenaf86t" path="res://brick_assets/Yellow/brick_low_1.png" id="3_42ed1"]
+[ext_resource type="AudioStream" uid="uid://dkl2rynxtlinp" path="res://sounds/toy_bricks_wooden_bag_movement_002.mp3" id="4_aw18q"]
+[ext_resource type="AudioStream" uid="uid://cdqkvlx5y4bc7" path="res://sounds/toy_bricks_wooden_bag_movement_001.mp3" id="5_s3mi1"]
 
 [sub_resource type="Curve" id="Curve_sn333"]
 _data = [Vector2(0, 0.907546), 0.0, 0.0, 0, 0, Vector2(1, 0.650731), 0.0, 0.0, 0, 0]
@@ -47,3 +49,9 @@ color_ramp = SubResource("Gradient_dcsxs")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(1, 0)
 occluder = SubResource("OccluderPolygon2D_6cjwr")
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aw18q")
+
+[node name="BrokenSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s3mi1")

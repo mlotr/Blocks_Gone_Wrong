@@ -11,6 +11,8 @@ var _current_hits: int = 0
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var particles: CPUParticles2D = $HitParticles
 @onready var collision_shape = $CollisionPolygon2D 
+@onready var hit_sfx = $HitSFX
+@onready var broken_sfx = $BrokenSFX
 
 func _ready() -> void:
 	# Load texture dynamically (with safety control)
@@ -36,6 +38,7 @@ func take_damage() -> void:
 
 func _play_hit_feedback() -> void:
 	particles.restart()
+	hit_sfx.play()
 	sprite.modulate = sprite.modulate.darkened(0.1)
 
 func _destroy_block() -> void:
@@ -50,10 +53,11 @@ func _destroy_block() -> void:
 	#particles.amount_ratio = 1.0
 	particles.amount *= 10
 	particles.explosiveness = 1.0
+	broken_sfx.play()
 	particles.restart()
 	
 	# 4. Wait and free
-	await particles.finished
+	await particles.finished and broken_sfx.finished
 	queue_free()
 
 func _shake_block() -> void:
