@@ -78,4 +78,6 @@ func _on_body_entered(body: Node) -> void:
 			# Optional: Play a "Recharge" sound here
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	# Let Game Manager know
+	get_tree().call_group("Managers", "_on_life_lost")
 	queue_free()

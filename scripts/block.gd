@@ -1,4 +1,6 @@
-extends StaticBody2D 
+extends StaticBody2D
+
+signal destroyed 
 
 # --- EXPORT VARIABLES ---
 @export_enum("Yellow", "Red", "Green", "Blue", "White", "Black") var block_color: String = "Yellow"
@@ -59,6 +61,10 @@ func _destroy_block() -> void:
 	# 4. Wait and free
 	await particles.finished 
 	await broken_sfx.finished
+	
+	destroyed.emit()
+	await particles.finished
+	
 	queue_free()
 
 func _shake_block() -> void:

@@ -18,7 +18,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.0962047, 0.0962048, 0.0962047, 0)
 cull_mode = 1
 polygon = PackedVector2Array(-33, -33, 31, -33, 31, 32, -33, 32)
 
-[node name="Block" type="StaticBody2D"]
+[node name="Block" type="StaticBody2D" groups=["Destructible"]]
 script = ExtResource("1_guht0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

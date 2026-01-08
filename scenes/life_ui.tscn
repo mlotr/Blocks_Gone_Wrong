@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cutbnl0nifuu5"]
+[gd_scene load_steps=3 format=3 uid="uid://cutbnl0nifuu5"]
 
+[ext_resource type="Script" path="res://scripts/life_ui.gd" id="1_0haq4"]
 [ext_resource type="Texture2D" uid="uid://c12bit6w4b7f4" path="res://UI/block_life.png" id="1_6ln70"]
 
 [node name="LifeUI" type="Control"]
@@ -16,7 +17,11 @@ offset_right = -860.0
 offset_bottom = -440.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_0haq4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+position = Vector2(76, 69)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_6ln70")
