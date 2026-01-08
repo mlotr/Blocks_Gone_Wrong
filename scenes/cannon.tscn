@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnpalud56fodw"]
+[gd_scene load_steps=15 format=3 uid="uid://bnpalud56fodw"]
 
 [ext_resource type="Script" path="res://scripts/cannon.gd" id="1_gacex"]
 [ext_resource type="PackedScene" uid="uid://baxni17x522no" path="res://scenes/bullet.tscn" id="2_60g0n"]
 [ext_resource type="Texture2D" uid="uid://cerejap46xrq1" path="res://cannon_assets/base_gun_STB.png" id="3_4bads"]
 [ext_resource type="Texture2D" uid="uid://bokbcq7ptuati" path="res://cannon_assets/gun_STB.png" id="4_qx01d"]
 [ext_resource type="AudioStream" uid="uid://ccsd3thnlh64w" path="res://sounds/Gunshot 1-1.wav" id="5_vasvc"]
+[ext_resource type="Texture2D" uid="uid://l760uh20ra5i" path="res://brick_assets/Red/brick_low_1.png" id="6_2j5dr"]
 
 [sub_resource type="Animation" id="Animation_c5r36"]
 length = 0.001
@@ -50,6 +51,19 @@ _data = {
 cull_mode = 1
 polygon = PackedVector2Array(0, 160, 0, -152, 48, -120, 48, -72, 104, -128, 128, -64, 232, -64, 264, -32, 288, -64, 312, -64, 336, -32, 352, -64, 384, -64, 416, -32, 416, 32, 384, 64, 352, 64, 336, 32, 312, 64, 288, 64, 264, 32, 232, 64, 128, 64, 104, 128, 48, 64, 48, 120)
 
+[sub_resource type="Curve" id="Curve_pua45"]
+max_value = 1000.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.287926, 1000), 0.0, 0.0, 0, 0, Vector2(0.990712, 984.591), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_5nrhn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.634675, 0.876729), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ebg5o"]
+offsets = PackedFloat32Array(0.588997, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
 [node name="Cannon" type="CharacterBody2D"]
 script = ExtResource("1_gacex")
 bullet_scene = ExtResource("2_60g0n")
@@ -81,3 +95,22 @@ occluder = SubResource("OccluderPolygon2D_qgxow")
 [node name="ShotSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_vasvc")
 volume_db = 4.0
+
+[node name="BoomParticles" type="CPUParticles2D" parent="."]
+position = Vector2(416, 0)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+randomness = 1.0
+texture = ExtResource("6_2j5dr")
+direction = Vector2(1, 2.08165e-12)
+spread = 62.05
+gravity = Vector2(2.08165e-12, 500)
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+damping_curve = SubResource("Curve_pua45")
+scale_amount_curve = SubResource("Curve_5nrhn")
+color_ramp = SubResource("Gradient_ebg5o")
