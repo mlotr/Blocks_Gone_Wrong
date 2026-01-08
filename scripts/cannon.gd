@@ -15,6 +15,7 @@ var _current_bullet: Node = null
 @onready var muzzle: Marker2D = $GunSprite/Muzzle
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var shot_sfx = $ShotSFX
+@onready var boom_particles = $BoomParticles
 
 func _process(_delta: float) -> void:
 	_handle_input()
@@ -50,5 +51,7 @@ func _fire() -> void:
 	if anim_player.has_animation("recoil"):
 		anim_player.play("recoil")
 		
+	# Emit boom particles
+	boom_particles.restart()
 	# Play SFX
 	shot_sfx.play()

@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://baxni17x522no"]
+[gd_scene load_steps=13 format=3 uid="uid://baxni17x522no"]
 
 [ext_resource type="Texture2D" uid="uid://c48egcqsjs7gv" path="res://brick_assets/Special/extra_character_a.png" id="1_1urkn"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_husne"]
 [ext_resource type="Texture2D" uid="uid://ch5iedndtaykl" path="res://brick_assets/Green/brick_low_1.png" id="3_21on2"]
+[ext_resource type="AudioStream" uid="uid://cv0i4ud7c1wao" path="res://sounds/zapsplat_cartoon_character_high_pitched_mouse_or_similar_ohh_scream_surprised_79839.mp3" id="4_vdumc"]
+[ext_resource type="AudioStream" uid="uid://blsxer8ex5cqi" path="res://sounds/zapsplat_cartoon_character_high_pitched_mouse_or_similar_ohh_surprised_001_79733.mp3" id="5_cyqsg"]
+[ext_resource type="AudioStream" uid="uid://b4t4cmrfu4sft" path="res://sounds/zapsplat_cartoon_character_high_pitched_mouse_or_similar_ohh_surprised_002_79734.mp3" id="6_ytbfu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p3a0x"]
 bounce = 1.0
@@ -21,6 +24,15 @@ size = Vector2(64, 64)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a17rf"]
 cull_mode = 1
 polygon = PackedVector2Array(-32, -32, 31, -32, 31, 32, -32, 32)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gdavu"]
+streams_count = 3
+stream_0/stream = ExtResource("4_vdumc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_cyqsg")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_ytbfu")
+stream_2/weight = 1.0
 
 [node name="Bullet" type="RigidBody2D" groups=["Projectiles"]]
 physics_material_override = SubResource("PhysicsMaterial_p3a0x")
@@ -55,5 +67,10 @@ scale = Vector2(3.3, 3.25)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_a17rf")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="VoiceSFX" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = SubResource("AudioStreamRandomizer_gdavu")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

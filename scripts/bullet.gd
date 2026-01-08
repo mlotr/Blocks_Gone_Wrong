@@ -14,11 +14,13 @@ var _current_speed: float = 0.0
 
 # --- ONREADY VARIABLES ---
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var voice_sfx = $Sounds/VoiceSFX
 
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
-	# Set default color (dimmed)
-	sprite.modulate = Color(1, 1, 1, 0.7) 
+	# Set default color
+	sprite.modulate = Color(1, 1, 1, 1)
+	
 
 func _input(event: InputEvent) -> void:
 	# Input is handled ONLY if we have a charge available
@@ -31,6 +33,10 @@ func _input(event: InputEvent) -> void:
 func launch(direction: Vector2, speed: float) -> void:
 	_current_speed = speed
 	self.linear_velocity = direction.normalized() * speed
+	
+	# Play voice SFX
+	if not voice_sfx.playing:
+		voice_sfx.play()
 
 # --- PRIVATE FUNCTIONS ---
 
@@ -57,6 +63,10 @@ func _on_body_entered(body: Node) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage()
 		hit_something.emit()
+		
+		# Play voice SFX
+		if not voice_sfx.playing:
+			voice_sfx.play()
 		
 		# RECHARGE MECHANIC:
 		# Every time we hit a block, we regain the ability to redirect
