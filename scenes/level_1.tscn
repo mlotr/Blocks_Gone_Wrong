@@ -45,7 +45,7 @@ texture = ExtResource("1_mkn4i")
 [node name="Cannon" parent="." instance=ExtResource("3_boywy")]
 position = Vector2(0, 536)
 
-[node name="GameCamera" type="Camera2D" parent="."]
+[node name="GameCamera" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2(960, 536)
 limit_left = 0
 limit_right = 2500

@@ -53,5 +53,7 @@ func _fire() -> void:
 		
 	# Emit boom particles
 	boom_particles.restart()
+	
 	# Play SFX
 	shot_sfx.play()
+	
