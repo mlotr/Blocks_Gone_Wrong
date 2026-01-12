@@ -13,6 +13,8 @@ func _ready() -> void:
 	_audio_player = AudioStreamPlayer.new()
 	add_child(_audio_player)
 	
+	_audio_player.max_polyphony = 4
+	
 	# Connessioni segnali interni
 	mouse_entered.connect(_on_hover)
 	pressed.connect(_on_pressed)
@@ -23,7 +25,6 @@ func _on_hover() -> void:
 		
 		# Random pitch 
 		#_audio_player.pitch_scale = randf_range(0.95, 1.05)
-		_audio_player.stop()
 		_audio_player.play()
 
 func _on_pressed() -> void:
