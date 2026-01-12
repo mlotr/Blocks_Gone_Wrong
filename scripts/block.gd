@@ -58,6 +58,10 @@ func _destroy_block() -> void:
 	broken_sfx.play()
 	particles.restart()
 	
+	# 3b. Apply camera shake
+	get_tree().call_group("Camera", "apply_shake", 20.0, 0.15)
+	#get_tree().call_group("Camera", "apply_standard_shake")
+	
 	# 4. Wait and free
 	await particles.finished 
 	await broken_sfx.finished

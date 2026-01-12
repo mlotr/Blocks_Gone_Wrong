@@ -47,6 +47,9 @@ func _fire() -> void:
 	
 	_current_bullet = bullet_instance
 	
+	# Apply camera shake
+	get_tree().call_group("Camera", "apply_shake", 10.0, 0.15)
+	
 	# Play recoil animation
 	if anim_player.has_animation("recoil"):
 		anim_player.play("recoil")
