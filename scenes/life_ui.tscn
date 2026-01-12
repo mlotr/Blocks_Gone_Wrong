@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cutbnl0nifuu5"]
+[gd_scene load_steps=7 format=3 uid="uid://cutbnl0nifuu5"]
 
 [ext_resource type="Script" path="res://scripts/life_ui.gd" id="1_0haq4"]
 [ext_resource type="Texture2D" uid="uid://c12bit6w4b7f4" path="res://UI/block_life.png" id="1_6ln70"]
+[ext_resource type="Texture2D" uid="uid://l760uh20ra5i" path="res://brick_assets/Red/brick_low_1.png" id="3_e15at"]
+[ext_resource type="AudioStream" uid="uid://cdqkvlx5y4bc7" path="res://sounds/toy_bricks_wooden_bag_movement_001.mp3" id="4_noh8m"]
+
+[sub_resource type="Curve" id="Curve_o61km"]
+_data = [Vector2(0.00928792, 0.830502), 0.0, 0.0, 0, 0, Vector2(1, 0.219281), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_n1qme"]
+offsets = PackedFloat32Array(0.475728, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [node name="LifeUI" type="Control"]
 custom_minimum_size = Vector2(100, 100)
@@ -25,3 +35,25 @@ script = ExtResource("1_0haq4")
 position = Vector2(76, 69)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_6ln70")
+
+[node name="BrokenParticles" type="CPUParticles2D" parent="."]
+position = Vector2(77, 66)
+emitting = false
+amount = 40
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+texture = ExtResource("3_e15at")
+emission_shape = 1
+emission_sphere_radius = 40.0
+direction = Vector2(2.08165e-12, -1)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = -400.0
+angular_velocity_max = 400.0
+scale_amount_curve = SubResource("Curve_o61km")
+color_ramp = SubResource("Gradient_n1qme")
+
+[node name="BrokenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_noh8m")
