@@ -15,7 +15,7 @@ _data = [Vector2(0, 0.871592), 0.0, 0.0, 0, 0, Vector2(0.996904, 0.558277), 0.0,
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_gvr0f"]
-offsets = PackedFloat32Array(0.530744, 1)
+offsets = PackedFloat32Array(0.825243, 1)
 colors = PackedColorArray(1.2, 1.2, 1.2, 1, 0, 0, 0, 0.32549)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52r7"]
@@ -43,7 +43,7 @@ script = ExtResource("1_husne")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 self_modulate = Color(0.25098, 0.909804, 1, 1)
-amount = 20
+amount = 50
 lifetime = 0.7
 randomness = 1.0
 texture = ExtResource("3_21on2")
