@@ -23,12 +23,20 @@ func _ready() -> void:
 	if ResourceLoader.exists(texture_path):
 		particles.texture = load(texture_path)
 	
+	# Duplicate material for each block
+	if sprite.material:
+		sprite.material = sprite.material.duplicate()
+	
 # --- PUBLIC FUNCTIONS ---
 
 ## Called by the Bullet when it collides with this block.
 func take_damage() -> void:
 	_current_hits += 1
+	# Calculate damage percentage (0.0 to 1.0)
+	var damage_percent = float(_current_hits) / float(max_hits)
 	
+	if sprite.material:
+		sprite.material.set_shader_parameter("damage_state", damage_percent)
 	_shake_block()
 	
 	if _current_hits >= max_hits:
