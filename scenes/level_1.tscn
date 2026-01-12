@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkyn4mwiaokpl"]
+[gd_scene load_steps=19 format=3 uid="uid://dkyn4mwiaokpl"]
 
 [ext_resource type="Texture2D" uid="uid://8l2nxj1rqc36" path="res://backgrounds/STB_parallax_background.png" id="1_mkn4i"]
 [ext_resource type="PackedScene" uid="uid://8og7i1oc0koo" path="res://scenes/block.tscn" id="1_n0uur"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dw10l56mnuvov" path="res://sounds/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3" id="9_fjmhu"]
 [ext_resource type="PackedScene" uid="uid://du37ei57qnfmg" path="res://scenes/hud.tscn" id="10_dlntt"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_e1vvc"]
+[ext_resource type="PackedScene" uid="uid://dpjlvk16xkjpu" path="res://scenes/result_screen.tscn" id="12_q41p0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_joon8"]
 polygon = PackedVector2Array(-97, -16, 95, -16, 95, 16, -97, 16)
@@ -175,6 +176,9 @@ autoplay = true
 [node name="GameManager" type="Node" parent="." groups=["Managers"]]
 script = ExtResource("11_e1vvc")
 hud_path = NodePath("../HUD")
+result_screen_scene = ExtResource("12_q41p0")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
 
 [editable path="BlocksContainer/Block3"]
 [editable path="BlocksContainer/Block4"]

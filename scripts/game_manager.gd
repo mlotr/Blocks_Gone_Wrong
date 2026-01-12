@@ -2,8 +2,9 @@ extends Node
 
 @export var total_lives: int = 3
 @export var hud_path: NodePath
-# Opzionale: trascina qui la scena del Game Over / Victory
+
 @export var result_screen_scene: PackedScene 
+@onready var ui_layer = get_parent().get_node("UILayer") # O assegna via export
 
 var _current_lives: int
 var _blocks_remaining: int = 0
@@ -33,7 +34,6 @@ func _ready():
 	# Useremo un segnale globale o un metodo chiamato dal Bullet stesso.
 
 # Funzione chiamata dal Bullet quando esce dallo schermo
-# (Vedi sotto come chiamarla)
 func _on_life_lost():
 	if _current_lives <= 0: return # Già morto
 	
@@ -56,12 +56,15 @@ func _on_block_destroyed():
 		_victory()
 
 func _game_over():
-	print("GAME OVER")
-	# Qui istanzierai la scena ResultScreen col testo "LOSE"
-	# O semplicemente ricarichi la scena dopo un timer
-	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene() # Placeholder
+	# Instantiate screen
+	var result_instance = result_screen_scene.instantiate()
+	ui_layer.add_child(result_instance)
+	
+	# Set screen up
+	result_instance.show_game_over()
 
 func _victory():
-	print("VICTORY")
-	# Idem come sopra
+	var result_instance = result_screen_scene.instantiate()
+	ui_layer.add_child(result_instance)
+	
+	result_instance.show_victory()
