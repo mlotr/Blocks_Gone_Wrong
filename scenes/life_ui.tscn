@@ -33,7 +33,7 @@ script = ExtResource("1_0haq4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(76, 69)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_6ln70")
 
 [node name="BrokenParticles" type="CPUParticles2D" parent="."]
