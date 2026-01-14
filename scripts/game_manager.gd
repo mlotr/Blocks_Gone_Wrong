@@ -27,6 +27,10 @@ func _ready():
 		if block.has_signal("destroyed"): 
 			block.destroyed.connect(_on_block_destroyed)
 			
+	# 4. Set up cursor (hotspot in center)
+	var cursor = load("res://UI/pointer_c_shaded.png")
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
+			
 			
 # Called from Bullet on exiting screen
 func _on_life_lost():

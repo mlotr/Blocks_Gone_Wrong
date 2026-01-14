@@ -23,14 +23,18 @@ func _ready() -> void:
 	
 	# 2. Handle Platform specifics
 	# If running on Web (HTML5), the Quit button is useless/confusing. Hide it.
-	if OS.has_feature("web"):
-		quit_btn.visible = false
+	#if OS.has_feature("web"):
+		#quit_btn.visible = false
 	
 	# 3. Start Intro Animation
 	# Ensure you have a "fade_in" animation that animates the modulate alpha of the whole control 
 	# or a black ColorRect overlay going from Alpha 1 to 0.
 	if anim_player.has_animation("fade_in"):
 		anim_player.play("fade_in")
+		
+	# 4. Set up cursor (hotspot in center)
+	var cursor = load("res://UI/pointer_c_shaded.png")
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 
 # --- SIGNAL CALLBACKS ---
 

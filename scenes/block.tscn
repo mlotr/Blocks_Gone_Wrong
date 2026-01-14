@@ -26,8 +26,8 @@ _data = [Vector2(0, 0.907546), 0.0, 0.0, 0, 0, Vector2(1, 0.650731), 0.0, 0.0, 0
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_dcsxs"]
-offsets = PackedFloat32Array(0.495146, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.0962047, 0.0962048, 0.0962047, 0)
+offsets = PackedFloat32Array(0.631068, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6cjwr"]
 cull_mode = 1
