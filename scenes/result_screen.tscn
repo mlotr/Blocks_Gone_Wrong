@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpjlvk16xkjpu"]
+[gd_scene load_steps=12 format=3 uid="uid://dpjlvk16xkjpu"]
 
 [ext_resource type="Script" path="res://scripts/result_screen.gd" id="1_s2m8r"]
 [ext_resource type="FontFile" uid="uid://ba1rok5vimfsm" path="res://fonts/Dimbo Regular.ttf" id="1_u5b03"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scripts/audio_button.gd" id="6_5v5sg"]
 [ext_resource type="AudioStream" uid="uid://dactm4q2p4ew5" path="res://sounds/Menu_Sounds_V2_Minimalistic_HOVER.mp3" id="7_x8c4g"]
 [ext_resource type="AudioStream" uid="uid://b2p8bl48of2m0" path="res://sounds/Menu_Sounds_V2_Minimalistic_FORWARD.mp3" id="8_0rhxw"]
+[ext_resource type="AudioStream" uid="uid://w34m6u5omrnx" path="res://sounds/Menu_Sounds_V2_Minimalistic_UNPAUSE.mp3" id="10_rui33"]
+[ext_resource type="AudioStream" uid="uid://dh4q1x0uqwocr" path="res://sounds/Menu_Sounds_V2_Minimalistic_SAVE_SAVEFILE.mp3" id="11_83cyg"]
 
 [node name="ResultScreen" type="Control"]
 process_mode = 3
@@ -112,3 +114,9 @@ offset_bottom = 768.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_6tslc")
 expand_mode = 1
+
+[node name="WinSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rui33")
+
+[node name="LoseSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_83cyg")
