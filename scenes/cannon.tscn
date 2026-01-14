@@ -65,6 +65,7 @@ offsets = PackedFloat32Array(0.588997, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [node name="Cannon" type="CharacterBody2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_gacex")
 bullet_scene = ExtResource("2_60g0n")
 

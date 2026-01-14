@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://du37ei57qnfmg"]
+[gd_scene load_steps=4 format=3 uid="uid://du37ei57qnfmg"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_gw07i"]
 [ext_resource type="PackedScene" uid="uid://cutbnl0nifuu5" path="res://scenes/life_ui.tscn" id="2_j7pkw"]
+[ext_resource type="AudioStream" uid="uid://dp07m8wlv46g" path="res://sounds/Special Collectible 9-1.wav" id="3_gc100"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_gw07i")
@@ -19,3 +20,6 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="FallbackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gc100")

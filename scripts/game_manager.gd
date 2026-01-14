@@ -4,7 +4,7 @@ extends Node
 @export var hud_path: NodePath
 
 @export var result_screen_scene: PackedScene 
-@onready var ui_layer = get_parent().get_node("UILayer") # O assegna via export
+@onready var ui_layer = get_parent().get_node("UILayer")
 
 var _current_lives: int
 var _blocks_remaining: int = 0
@@ -18,28 +18,23 @@ func _ready():
 		_hud_ref = get_node(hud_path)
 		_hud_ref.setup_lives(total_lives)
 	
-	# 2. Conta i blocchi
-	# IMPORTANTE: Assicurati che i blocchi siano nel gruppo "Destructible"
+	# 2. Count blocks
 	var blocks = get_tree().get_nodes_in_group("Destructible")
 	_blocks_remaining = blocks.size()
 	
-	# 3. Connetti i segnali dei blocchi
+	# 3. Connect bloocks signals
 	for block in blocks:
-		# Assumiamo che il blocco emetta un segnale 'destroyed'
 		if block.has_signal("destroyed"): 
 			block.destroyed.connect(_on_block_destroyed)
 			
-	# Nota: Per il Bullet, poiché viene istanziato dinamicamente dal Cannone,
-	# non possiamo connetterlo qui nel _ready. 
-	# Useremo un segnale globale o un metodo chiamato dal Bullet stesso.
-
-# Funzione chiamata dal Bullet quando esce dallo schermo
+			
+# Called from Bullet on exiting screen
 func _on_life_lost():
 	if _current_lives <= 0: return # Già morto
 	
 	_current_lives -= 1
 	
-	# Aggiorna l'HUD (toglie l'ultimo cuore rimasto)
+	# Update HUD
 	if _hud_ref:
 		_hud_ref.drop_life(_current_lives)
 	

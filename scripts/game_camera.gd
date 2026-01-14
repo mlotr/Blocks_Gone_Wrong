@@ -15,6 +15,7 @@ extends Camera2D
 var _cannon: Node2D
 var _target: Node2D
 
+
 # Shake variables
 var rng := RandomNumberGenerator.new()
 var base_offset: Vector2
@@ -29,6 +30,7 @@ func _ready() -> void:
 	if cannon_path:
 		_cannon = get_node(cannon_path)
 		_target = _cannon
+	
 
 func _process(delta: float) -> void:
 	# 1. Determine the target
@@ -74,6 +76,7 @@ func _find_target() -> void:
 	else:
 		# Fallback to Cannon
 		_target = _cannon
+		
 
 # Logic for camera shake
 func random_offset(strength: float) -> Vector2:

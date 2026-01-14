@@ -49,6 +49,7 @@ position = Vector2(0, 536)
 [node name="GameCamera" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2(960, 536)
 limit_left = 0
+limit_top = -2500
 limit_right = 2500
 limit_bottom = 1500
 limit_smoothed = true
