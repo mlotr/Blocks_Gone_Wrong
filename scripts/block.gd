@@ -2,6 +2,17 @@ extends StaticBody2D
 
 signal destroyed 
 
+# --- CONFIGURATION ---
+# Color -> Max Hits
+const COLOR_DATA = {
+	"Yellow": 2,
+	"Red": 3,
+	"Green": 4,
+	"Blue": 5,
+	"White": 6,
+	"Black": 7
+}
+
 # --- EXPORT VARIABLES ---
 @export_enum("Yellow", "Red", "Green", "Blue", "White", "Black") var block_color: String = "Yellow"
 @export var max_hits: int = 1
@@ -17,6 +28,12 @@ var _current_hits: int = 0
 @onready var broken_sfx = $BrokenSFX
 
 func _ready() -> void:
+	# Set max hits according to color
+	if block_color in COLOR_DATA:
+		max_hits = COLOR_DATA[block_color]
+	else:
+		max_hits = 1 # Fallback
+	
 	# Load texture dynamically (with safety control)
 	var texture_path = "res://brick_assets/" + block_color + "/brick_low_1.png"
 	

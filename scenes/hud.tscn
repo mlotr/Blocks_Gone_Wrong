@@ -23,3 +23,4 @@ offset_bottom = 40.0
 
 [node name="FallbackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gc100")
+bus = &"UI"

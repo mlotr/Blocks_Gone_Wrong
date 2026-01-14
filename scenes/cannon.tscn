@@ -96,6 +96,7 @@ occluder = SubResource("OccluderPolygon2D_qgxow")
 [node name="ShotSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_vasvc")
 volume_db = 4.0
+bus = &"SFX"
 
 [node name="BoomParticles" type="CPUParticles2D" parent="."]
 position = Vector2(416, 0)

@@ -57,3 +57,4 @@ color_ramp = SubResource("Gradient_n1qme")
 
 [node name="BrokenSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_noh8m")
+bus = &"UI"

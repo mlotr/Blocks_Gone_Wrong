@@ -267,3 +267,4 @@ color = Color(0, 0, 0, 1)
 stream = ExtResource("8_qvbyc")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"

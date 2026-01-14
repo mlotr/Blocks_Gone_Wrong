@@ -72,5 +72,6 @@ occluder = SubResource("OccluderPolygon2D_a17rf")
 
 [node name="VoiceSFX" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamRandomizer_gdavu")
+bus = &"SFX"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

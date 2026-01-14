@@ -117,6 +117,8 @@ expand_mode = 1
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_rui33")
+bus = &"UI"
 
 [node name="LoseSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_83cyg")
+bus = &"UI"
