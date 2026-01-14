@@ -15,6 +15,7 @@ var _current_speed: float = 0.0
 # --- ONREADY VARIABLES ---
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var voice_sfx = $Sounds/VoiceSFX
+@onready var recharge_sfx = $Sounds/RechargeSFX
 
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
@@ -75,7 +76,9 @@ func _on_body_entered(body: Node) -> void:
 			# Visual feedback: Glow up!
 			sprite.modulate = Color(1.5, 1.5, 0.5, 1.0) # Bright Yellow/Gold
 			
-			# Optional: Play a "Recharge" sound here
+			# Play a "Recharge" sound here
+			recharge_sfx.stop()
+			recharge_sfx.play()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	# Let Game Manager know
