@@ -78,7 +78,7 @@ position = Vector2(0, 536)
 [node name="GameCamera" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2(960, 536)
 limit_left = 0
-limit_top = -2500
+limit_top = -1000
 limit_right = 2500
 limit_bottom = 1500
 limit_smoothed = true
@@ -87,6 +87,7 @@ script = ExtResource("4_fbl8c")
 cannon_path = NodePath("../Cannon")
 
 [node name="BlocksContainer" type="Node2D" parent="."]
+position = Vector2(-266, 0)
 
 [node name="Block12" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 position = Vector2(879, 536)
@@ -877,6 +878,132 @@ polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
 position = Vector2(0, 0)
 occluder = SubResource("OccluderPolygon2D_5ynwi")
 
+[node name="Block122" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(815, 606)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block122" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block122" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block122" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block123" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+position = Vector2(1166, 606)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block123" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block123" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block123" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block124" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 1
+position = Vector2(1391, 606)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block124" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block124" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block124" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block125" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 1
+position = Vector2(1743, 608)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block125" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block125" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block125" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block126" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 1
+position = Vector2(1967, 606)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block126" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block126" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block126" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block127" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 1
+position = Vector2(2319, 606)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block127" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block127" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block127" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block128" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 10
+position = Vector2(1743, 222)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block128" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block128" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block128" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
+[node name="Block129" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 10
+position = Vector2(1391, 222)
+max_hits = 2
+
+[node name="Sprite2D" parent="BlocksContainer/Block129" index="0"]
+position = Vector2(1, 0)
+texture = ExtResource("6_ld374")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block129" index="1"]
+polygon = PackedVector2Array(46, -12, 46, -44, 78, -44, 78, -12)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block129" index="3"]
+position = Vector2(0, 0)
+occluder = SubResource("OccluderPolygon2D_5ynwi")
+
 [node name="Block23" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 z_index = 3
 position = Vector2(1679, 496)
@@ -994,7 +1121,7 @@ max_hits = 2
 
 [node name="Block31" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 z_index = 21
-position = Vector2(1568, 632)
+position = Vector2(1568, 636)
 block_color = "Blue"
 max_hits = 2
 
@@ -1030,7 +1157,7 @@ occluder = SubResource("OccluderPolygon2D_3phj2")
 
 [node name="Block34" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 z_index = 22
-position = Vector2(1568, 576)
+position = Vector2(1568, 583)
 block_color = "Blue"
 max_hits = 2
 
@@ -1329,7 +1456,7 @@ occluder = SubResource("OccluderPolygon2D_6y4qm")
 
 [node name="Block63" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 z_index = 19
-position = Vector2(1568, 664)
+position = Vector2(1568, 670)
 block_color = "Blue"
 max_hits = 3
 
@@ -1341,6 +1468,23 @@ position = Vector2(-184, 16)
 scale = Vector2(2.96875, 0.538462)
 
 [node name="LightOccluder2D" parent="BlocksContainer/Block63" index="3"]
+position = Vector2(0, 8)
+occluder = SubResource("OccluderPolygon2D_6y4qm")
+
+[node name="Block121" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
+z_index = 19
+position = Vector2(1568, 283)
+block_color = "Blue"
+max_hits = 3
+
+[node name="Sprite2D" parent="BlocksContainer/Block121" index="0"]
+texture = ExtResource("9_ajnhx")
+
+[node name="CollisionPolygon2D" parent="BlocksContainer/Block121" index="1"]
+position = Vector2(-184, 16)
+scale = Vector2(2.96875, 0.538462)
+
+[node name="LightOccluder2D" parent="BlocksContainer/Block121" index="3"]
 position = Vector2(0, 8)
 occluder = SubResource("OccluderPolygon2D_6y4qm")
 
@@ -1666,8 +1810,8 @@ position = Vector2(1440, 264)
 max_hits = 2
 
 [node name="Block91" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
-z_index = 7
-position = Vector2(1568, 232)
+z_index = 23
+position = Vector2(1568, 249)
 block_color = "Blue"
 max_hits = 2
 
@@ -1680,11 +1824,11 @@ occluder = SubResource("OccluderPolygon2D_3phj2")
 [node name="Block92" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 z_index = 10
 position = Vector2(1568, 19)
-block_color = "Green"
+block_color = "White"
 max_hits = 2
 
 [node name="Sprite2D" parent="BlocksContainer/Block92" index="0"]
-texture = ExtResource("10_lno88")
+texture = ExtResource("16_62mpd")
 
 [node name="LightOccluder2D" parent="BlocksContainer/Block92" index="3"]
 occluder = SubResource("OccluderPolygon2D_3phj2")
@@ -1692,18 +1836,18 @@ occluder = SubResource("OccluderPolygon2D_3phj2")
 [node name="Block93" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
 z_index = 11
 position = Vector2(1568, -32)
-block_color = "Green"
+block_color = "Black"
 max_hits = 2
 
 [node name="Sprite2D" parent="BlocksContainer/Block93" index="0"]
-texture = ExtResource("10_lno88")
+texture = ExtResource("11_bjo6p")
 
 [node name="LightOccluder2D" parent="BlocksContainer/Block93" index="3"]
 occluder = SubResource("OccluderPolygon2D_3phj2")
 
 [node name="Block94" parent="BlocksContainer" instance=ExtResource("1_n0uur")]
-z_index = 7
-position = Vector2(1568, 176)
+z_index = 24
+position = Vector2(1568, 196)
 block_color = "Blue"
 max_hits = 2
 
@@ -1871,6 +2015,14 @@ result_screen_scene = ExtResource("12_q41p0")
 [editable path="BlocksContainer/Block18"]
 [editable path="BlocksContainer/Block21"]
 [editable path="BlocksContainer/Block22"]
+[editable path="BlocksContainer/Block122"]
+[editable path="BlocksContainer/Block123"]
+[editable path="BlocksContainer/Block124"]
+[editable path="BlocksContainer/Block125"]
+[editable path="BlocksContainer/Block126"]
+[editable path="BlocksContainer/Block127"]
+[editable path="BlocksContainer/Block128"]
+[editable path="BlocksContainer/Block129"]
 [editable path="BlocksContainer/Block23"]
 [editable path="BlocksContainer/Block24"]
 [editable path="BlocksContainer/Block25"]
@@ -1901,6 +2053,7 @@ result_screen_scene = ExtResource("12_q41p0")
 [editable path="BlocksContainer/Block61"]
 [editable path="BlocksContainer/Block62"]
 [editable path="BlocksContainer/Block63"]
+[editable path="BlocksContainer/Block121"]
 [editable path="BlocksContainer/Block67"]
 [editable path="BlocksContainer/Block68"]
 [editable path="BlocksContainer/Block69"]

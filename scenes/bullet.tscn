@@ -41,6 +41,7 @@ max_contacts_reported = 3
 contact_monitor = true
 linear_damp = 0.5
 script = ExtResource("1_husne")
+redirect_speed = 1200.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 self_modulate = Color(0.25098, 0.909804, 1, 1)
