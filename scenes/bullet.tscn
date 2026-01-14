@@ -12,12 +12,12 @@
 bounce = 1.0
 
 [sub_resource type="Curve" id="Curve_5cc7g"]
-_data = [Vector2(0, 0.871592), 0.0, 0.0, 0, 0, Vector2(0.996904, 0.558277), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.871592), 0.0, 0.0, 0, 0, Vector2(0.993808, 0.415893), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_gvr0f"]
 offsets = PackedFloat32Array(0.825243, 1)
-colors = PackedColorArray(1.2, 1.2, 1.2, 1, 0, 0, 0, 0.32549)
+colors = PackedColorArray(1.2, 1.2, 1.2, 1, 1.2, 1.2, 1.2, 0.118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52r7"]
 size = Vector2(64, 64)
