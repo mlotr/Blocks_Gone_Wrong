@@ -1,14 +1,26 @@
 # Blocks Gone Wrong
 
-![Gameplay Screenshot](screenshots/1yes.png)
-
 ![Godot Engine](https://img.shields.io/badge/Godot-4.2-%23478cbf?logo=godot-engine&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Web%20%2F%20Desktop-important)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Web-orange)![License](https://img.shields.io/badge/License-MIT-green)
 
 **Blocks Gone Wrong** is a high-polish, physics-based arcade prototype developed using the **Godot 4** engine. This project serves as a technical demonstration of "Juicy" game design principles, featuring advanced 2D physics, procedural visual effects, and a robust architecture.
 
 Developed by **MAY - Matt Against Yokai**.
+
+---
+
+## 🎮 Play in Browser
+You can play the latest build of the game directly in your browser on itch.io:
+
+[![Play on itch.io](https://img.shields.io/badge/Play%20on-itch.io-fa5c5c?style=for-the-badge&logo=itch.io)](https://mlotr.itch.io/blocks-gone-wrong)
+
+---
+
+## 📸 Screenshots
+<p align="center">
+  <img src="screenshots/1yes.png" width="45%" />
+  <img src="screenshots/6yes.png" width="45%" />
+</p>
 
 ---
 
@@ -51,7 +63,8 @@ This project was built using high-quality assets from the following creators:
 
 * **Development & Design:** [MAY - Matt Against Yokai](https://github.com/mlotr)
 * **Art Assets:** * [Kenney](https://kenney.nl/) (UI, Bricks, and Particles).
-* **Audio & SFX:** * [Kenney](https://kenney.nl/) (UI and Game SFX).
+* **Audio & SFX:** 
+    * [Kenney](https://kenney.nl/) (UI and Game SFX).
     * [Zapsplat](https://www.zapsplat.com/) (Impact and Environmental sounds).
 
 ---
