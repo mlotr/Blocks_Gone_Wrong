@@ -1,7 +1,8 @@
 # Blocks Gone Wrong
 
 ![Godot Engine](https://img.shields.io/badge/Godot-4.2-%23478cbf?logo=godot-engine&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Web-orange)![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Web-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 **Blocks Gone Wrong** is a high-polish, physics-based arcade prototype developed using the **Godot 4** engine. This project serves as a technical demonstration of "Juicy" game design principles, featuring advanced 2D physics, procedural visual effects, and a robust architecture.
 
