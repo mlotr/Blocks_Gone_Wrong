@@ -26,13 +26,13 @@ You can play the latest build of the game directly in your browser on itch.io:
 ---
 
 ## 📺 Video Presentation
-In this video, I present the core features and technical logic of *Blocks Gone Wrong*, developed as a parallel prototype to my main project, **NAD**.
+In this video, the prototype's core features and the technical logic behind the "Juicy" game feel are presented.
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/33793192-b15e-4f01-8240-8e3a27299dba" height="500" controls>
-    Your browser does not support the video tag.
-  </video>
-</p>
+<div align="center">
+<video src="https://github.com/user-attachments/assets/33793192-b15e-4f01-8240-8e3a27299dba" height="500" controls>
+Your browser does not support the video tag.
+</video>
+</div>
 
 ---
 
