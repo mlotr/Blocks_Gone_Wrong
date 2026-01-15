@@ -25,6 +25,17 @@ You can play the latest build of the game directly in your browser on itch.io:
 
 ---
 
+## 📺 Video Presentation
+In this video, I present the core features and technical logic of *Blocks Gone Wrong*, developed as a parallel prototype to my main project, **NAD**.
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/33793192-b15e-4f01-8240-8e3a27299dba" height="500" controls>
+    Your browser does not support the video tag.
+  </video>
+</p>
+
+---
+
 ## 🕹️ Project Overview
 In *Blocks Gone Wrong*, the objective is to clear structured formations of colored blocks using physics-based projectiles. The project prioritises tactile feedback and game feel, ensuring every interaction—from firing the cannon to the final block explosion—is visually and high-fidelity.
 
