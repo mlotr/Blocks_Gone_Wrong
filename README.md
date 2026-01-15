@@ -13,7 +13,7 @@ Developed by **MAY - Matt Against Yokai**.
 ## 🎮 Play in Browser
 You can play the latest build of the game directly in your browser on itch.io:
 
-[![Play on itch.io](https://img.shields.io/badge/Play%20on-itch.io-fa5c5c?style=for-the-badge&logo=itch.io)](https://mlotr.itch.io/blocks-gone-wrong)
+[![Play on itch.io](https://img.shields.io/badge/Play%20on-itch.io-fa5c5c?style=for-the-badge&logo=itch.io)](https://mattagainstyokai.itch.io/blocks-gone-wrong)
 
 ---
 
@@ -63,7 +63,8 @@ In *Blocks Gone Wrong*, the objective is to clear structured formations of color
 This project was built using high-quality assets from the following creators:
 
 * **Development & Design:** [MAY - Matt Against Yokai](https://github.com/mlotr)
-* **Art Assets:** * [Kenney](https://kenney.nl/) (UI, Bricks, and Particles).
+* **Art Assets:** 
+    * [Kenney](https://kenney.nl/) (UI, Bricks, and Particles).
 * **Audio & SFX:** 
     * [Kenney](https://kenney.nl/) (UI and Game SFX).
     * [Zapsplat](https://www.zapsplat.com/) (Impact and Environmental sounds).
