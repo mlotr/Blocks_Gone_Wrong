@@ -28,7 +28,11 @@ You can play the latest build of the game directly in your browser on itch.io:
 ## 📺 Video Presentation
 In this video, the prototype's core features and the technical logic behind the "Juicy" game feel are presented.
 
-<video src="videos/video.mp4" width="320" controls></video>
+<p align="center">
+  <video src="videos/video.mp4" width="320" controls>
+    Your browser does not support the video tag. You can watch the video <a href="videos/video.mp4">here</a>.
+  </video>
+</p>
 
 ---
 
