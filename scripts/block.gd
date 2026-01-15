@@ -70,7 +70,6 @@ func _play_hit_feedback() -> void:
 
 func _destroy_block() -> void:
 	# 1. Disable collision immediately so the bullet passes through or doesn't bounce anymore
-	# 'set_deferred' is crucial for physics bodies to avoid crashes during physics calculations
 	collision_shape.set_deferred("disabled", true)
 	
 	# 2. Hide visual

@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+# --- EXPORT VARIABLES ---
 @export var life_scene: PackedScene 
+
+# --- ONREADY VARIABLES ---
 @onready var lives_container = $Control/HBoxContainer
 @onready var fallback_sfx = $FallbackSFX
 
@@ -10,6 +13,7 @@ func setup_lives(amount: int):
 	for child in lives_container.get_children():
 		child.queue_free()
 	
+	# Instantiate
 	for i in range(amount):
 		var life = life_scene.instantiate()
 		lives_container.add_child(life)

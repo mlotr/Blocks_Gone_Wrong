@@ -40,9 +40,6 @@ func _process(delta: float) -> void:
 	if is_instance_valid(_target):
 		var desired_position = _target.global_position
 		
-		# Optional: Keep the camera centered slightly ahead or behind?
-		# For now, let's just center on the object but maybe limit Y movement
-		
 		# Use lerp for smooth movement
 		global_position = global_position.lerp(desired_position, smooth_speed * delta)
 		
@@ -52,7 +49,7 @@ func _process(delta: float) -> void:
 			# Normalized time (1 → 0)
 			var t := shake_timer / shake_duration
 			
-			# Decadimento smooth
+			# Smooth decay
 			#var current_strength := lerpf(0.0, shake_strength, t)
 			var current_strength = max(lerpf(0.0, shake_strength, t), 1.2)
 			
@@ -62,12 +59,7 @@ func _process(delta: float) -> void:
 
 # Logic to switch between Cannon and Bullet
 func _find_target() -> void:
-	# Check if there is a Bullet in the "Hitpanel" group or just look for RigidBody2D?
-	# Better approach: Look for the specific bullet node in the scene tree logic.
-	# Since Bullet is added to Level1, we can search for it.
-	
-	# Let's assume the Bullet is in a Group called "Projectiles" 
-	# (Remember to add the Bullet scene to this group in the Node tab!)
+	# Look for the specific bullet node in the scene tree logic.
 	var bullets = get_tree().get_nodes_in_group("Projectiles")
 	
 	if bullets.size() > 0:

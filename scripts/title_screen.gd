@@ -1,9 +1,9 @@
 extends Control
 
 # --- EXPORT VARIABLES ---
-# Trascina qui la scena del tuo livello (Level1.tscn)
 @export var level_scene: PackedScene
-# Link al tuo portfolio/github (opzionale)
+
+# Link to portfolio/github
 @export var portfolio_url: String = "https://github.com/mlotr"
 
 # --- ONREADY VARIABLES ---
@@ -22,13 +22,11 @@ func _ready() -> void:
 		portfolio_btn.pressed.connect(_on_portfolio_pressed)
 	
 	# 2. Handle Platform specifics
-	# If running on Web (HTML5), the Quit button is useless/confusing. Hide it.
+	# If running on Web (HTML5), the Quit button is useless/confusing
 	#if OS.has_feature("web"):
 		#quit_btn.visible = false
 	
 	# 3. Start Intro Animation
-	# Ensure you have a "fade_in" animation that animates the modulate alpha of the whole control 
-	# or a black ColorRect overlay going from Alpha 1 to 0.
 	if anim_player.has_animation("fade_in"):
 		anim_player.play("fade_in")
 		
@@ -42,13 +40,11 @@ func _on_play_pressed() -> void:
 	# Prevent double clicks
 	play_btn.disabled = true
 	
-	# Play a sound if you have an AudioStreamPlayer node
-	# $ClickSound.play()
-	
 	# Transition Logic:
 	# 1. Play fade OUT animation (Screen goes black)
 	if anim_player.has_animation("fade_out"):
 		anim_player.play("fade_out")
+		
 		# Wait for the animation to finish
 		await anim_player.animation_finished
 	
@@ -59,7 +55,7 @@ func _on_play_pressed() -> void:
 		push_error("TitleScreen: No Level Scene assigned in Inspector!")
 
 func _on_quit_pressed() -> void:
-	# Simply quits the application (Desktop only)
+	# Simply quits the application
 	get_tree().quit()
 
 func _on_portfolio_pressed() -> void:

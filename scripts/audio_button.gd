@@ -1,11 +1,13 @@
 class_name AudioButton extends TextureButton
 
+# --- EXPORT VARIABLES ---
 @export var hover_sound: AudioStream
 @export var click_sound: AudioStream
 
-# --- STAATIC VARIABLES (shared by all buttons) ---
+# --- STATIC VARIABLES (shared by all buttons) ---
 # Save last time sound played in the whole game
 static var last_hover_time: int = 0
+
 # Minimum time (in milliseconds) between hover sounds
 const HOVER_COOLDOWN_MS: int = 100 
 
@@ -18,6 +20,7 @@ func _ready() -> void:
 	add_child(hover_audio_player)
 	hover_audio_player.bus = "UI"
 	hover_audio_player.stream = hover_sound
+	
 	# Max polyphony helps for double hovering on same button 
 	hover_audio_player.max_polyphony = 2 
 	

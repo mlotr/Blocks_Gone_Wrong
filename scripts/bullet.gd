@@ -19,6 +19,7 @@ var _current_speed: float = 0.0
 
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
+	
 	# Set default color
 	sprite.modulate = Color(1, 1, 1, 1)
 	
@@ -47,7 +48,7 @@ func _redirect_bullet() -> void:
 	var direction = (mouse_pos - global_position).normalized()
 	
 	# Apply new velocity immediately
-	# We use redirect_speed to give it a "dash" feeling, or reuse _current_speed
+	# using redirect_speed to give it a "dash" feeling, or reuse _current_speed
 	self.linear_velocity = direction * redirect_speed
 	
 	# Consume the charge
@@ -74,7 +75,7 @@ func _on_body_entered(body: Node) -> void:
 		if not _has_charge:
 			_has_charge = true
 			# Visual feedback: Glow up!
-			sprite.modulate = Color(1.5, 1.5, 0.5, 1.0) # Bright Yellow/Gold
+			sprite.modulate = Color(1.5, 1.5, 0.5, 1.0) # Bright Green
 			
 			# Play a "Recharge" sound here
 			recharge_sfx.stop()

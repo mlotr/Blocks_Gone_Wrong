@@ -1,9 +1,11 @@
 extends Node
 
+# --- EXPORT VARIABLES ---
 @export var total_lives: int = 3
 @export var hud_path: NodePath
+@export var result_screen_scene: PackedScene
 
-@export var result_screen_scene: PackedScene 
+ # --- ONREADY VARIABLES ---
 @onready var ui_layer = get_parent().get_node("UILayer")
 
 var _current_lives: int
@@ -22,7 +24,7 @@ func _ready():
 	var blocks = get_tree().get_nodes_in_group("Destructible")
 	_blocks_remaining = blocks.size()
 	
-	# 3. Connect bloocks signals
+	# 3. Connect blocks signals
 	for block in blocks:
 		if block.has_signal("destroyed"): 
 			block.destroyed.connect(_on_block_destroyed)

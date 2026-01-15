@@ -1,7 +1,7 @@
 extends Control
 
 # --- EXPORT VARIABLES ---
-# Main Menu scene (TitleScreen.tscn)
+# Main Menu scene (title_screen.tscn)
 @export var title_screen_scene: String = "res://scenes/title_screen.tscn" 
 
 # --- ONREADY VARIABLES ---
@@ -49,7 +49,7 @@ func _show_screen() -> void:
 	
 	# Fade in animation
 	modulate.a = 0.0
-	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS) # Il tween deve funzionare anche in pausa!
+	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS) # Tween has to work during pause too
 	tween.tween_property(self, "modulate:a", 1.0, 0.5)
 
 func _on_restart_pressed() -> void:
